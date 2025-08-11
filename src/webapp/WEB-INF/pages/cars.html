@@ -12,9 +12,9 @@
     <th>EngineSize</th>
   </tr>
   <tr th:each="car: ${cars}">
-    <td th:text="${car.nameCars}"></td>
-    <td th:text="${car.year}"></td>
-    <td th:text="${car.sizeEngine()}"></td>
+    <td th:text="${car.getNameCars}"></td>
+    <td th:text="${car.getYear}"></td>
+    <td th:text="${car.getSizeEngine()}"></td>
   </tr>
 </table>
 </body>
