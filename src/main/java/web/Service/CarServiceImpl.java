@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import web.Model.Car;
 
 @Service
-public class CarServiceImpl implements CarServies{
+public class CarServiceImpl implements CarServies {
 
     private final List<Car> cars = new ArrayList<>(List.of(
             new Car("Tesla Model S", 0, 2020),
@@ -25,7 +25,12 @@ public class CarServiceImpl implements CarServies{
 
     @Override
     public List<Car> getCarList(Integer count) {
-        count = (count > 5) ? 5 : (count < 0) ? 0 : count;
+        if (count == null) {
+            count = 5;
+        }
+
+        count = Math.max(0, Math.min(count, 5));
+
         return cars.stream().limit(count).toList();
     }
 }
